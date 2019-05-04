@@ -5,8 +5,8 @@ class catalogController extends Controller
 
     public function __construct()
     {
-$this->model = new catalogModel();
-$this->view = new View();
+        $this->model = new catalogModel();
+        $this->view = new View();
     }
 
     public function index()
@@ -14,7 +14,7 @@ $this->view = new View();
         $results = $this->model->getCatalog();
         if(isset($_POST['search'])) {
             $results=$this->model->searchBooks();
-}
+        }
 
         if(isset($_POST['nameBook'])){
             $user = $this->model->getLoginId('root');
