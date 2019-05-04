@@ -12,7 +12,7 @@ class adminMenuController extends Controller
     public function index()
     {
         $results = $this->model->getUsers();
-  	   $this->pageData['results'] = $results;
+  	$this->pageData['results'] = $results;
 
         $results = $this->model->getBooks();
         $this->pageData['resultz'] = $results;

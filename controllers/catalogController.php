@@ -20,7 +20,7 @@ class catalogController extends Controller
             $user = $this->model->getLoginId('root');
             $book = $this->model->getBookId($_POST['nameBook']);
             $this->model->addOrderBook();
-			  }
+        }
 
         $this->pageData['results'] = $results;
         $this->pageData['title'] = "Каталог";
