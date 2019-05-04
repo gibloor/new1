@@ -50,7 +50,7 @@ class catalogModel extends Model
             $result[$row['id']] = $row;
         }
         return $result;
-  }
+    }
 
     public function addOrderBook()
     {
