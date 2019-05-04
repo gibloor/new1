@@ -1,4 +1,4 @@
-<?
+<?php
 class catalogController extends Controller
 {
     private $pageTpl = '/views/catalog.tpl.php';

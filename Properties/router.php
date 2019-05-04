@@ -1,4 +1,4 @@
-<?
+<?php
 class Routing
 {
     public static function buildRoute()

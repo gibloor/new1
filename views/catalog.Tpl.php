@@ -24,6 +24,6 @@
     }
     echo "</table>";
 ?>
-    <a href="admin_menu"> <input type="submit" name="" value="выдача книг"> </a>
+    <a href="adminMenu"> <input type="submit" name="" value="выдача книг"> </a>
 </body>
 </html>

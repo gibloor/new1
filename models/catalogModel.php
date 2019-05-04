@@ -1,4 +1,4 @@
-<?
+<?php
 class catalogModel extends Model
 {
     public function getLoginId($login)
