@@ -1,5 +1,4 @@
 <?php
-
 class IndexController extends Controller
 {
     private $pageTpl = '/views/main.tpl.php';

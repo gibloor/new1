@@ -1,13 +1,15 @@
 <?php
-class catalogModel extends Model
+namespace Library\catalog;
+
+class catalogModel extends \Model
 {
     public function getLoginId($login)
     {
         $sql = "SELECT id FROM users WHERE login ='$login'";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         foreach($result as $key => $value){
             $user= $value;
         }
@@ -18,9 +20,9 @@ class catalogModel extends Model
     {
         $sql = "SELECT id FROM books WHERE name = '$book'";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(":id", $id, PDO::PARAM_INT);
+        $stmt->bindValue(":id", $id, \PDO::PARAM_INT);
         $stmt->execute();
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        $result = $stmt->fetch(\PDO::FETCH_ASSOC);
         foreach($result as $key => $value){
             $book= $value;
         }
@@ -34,7 +36,7 @@ class catalogModel extends Model
     		$sql = "SELECT * FROM books WHERE name = '$search' OR writer = '$search' OR genre = '$search'";
     		$stmt = $this->db->prepare($sql);
     		$stmt->execute();
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
         return $result;
@@ -46,7 +48,7 @@ class catalogModel extends Model
         $sql = "SELECT * FROM books";
         $stmt = $this->db->prepare($sql);
         $stmt->execute();
-        while($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while($row = $stmt->fetch(\PDO::FETCH_ASSOC)) {
             $result[$row['id']] = $row;
         }
         return $result;
@@ -63,11 +65,11 @@ class catalogModel extends Model
         $sql = "INSERT INTO readers(id_book,id_user,how_received,date_receiv,date_return)
                 VALUES(:book,:user,:receiv,:date1,:date2)";
         $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(":book", $book, PDO::PARAM_STR);
-        $stmt->bindValue(":user", $user, PDO::PARAM_INT);
-        $stmt->bindValue(":receiv", $receiv, PDO::PARAM_INT);
-        $stmt->bindValue(":date1", $date1, PDO::PARAM_INT);
-        $stmt->bindValue(":date2", $date2, PDO::PARAM_INT);
+        $stmt->bindValue(":book", $book, \PDO::PARAM_STR);
+        $stmt->bindValue(":user", $user, \PDO::PARAM_INT);
+        $stmt->bindValue(":receiv", $receiv, \PDO::PARAM_INT);
+        $stmt->bindValue(":date1", $date1, \PDO::PARAM_INT);
+        $stmt->bindValue(":date2", $date2, \PDO::PARAM_INT);
         $stmt->execute();
         return true;
     }

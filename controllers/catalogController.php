@@ -1,5 +1,7 @@
 <?php
-class catalogController extends Controller
+use Library\catalog\catalogModel;
+
+class catalogController extends \Controller
 {
     private $pageTpl = '/views/catalog.tpl.php';
 
