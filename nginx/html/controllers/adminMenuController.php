@@ -1,7 +1,7 @@
 <?php
 use Library\adminMenu\adminMenuModel;
 
-class adminMenuController extends Controller
+class adminMenuController extends \Controller
 {
     private $pageTpl = '/views/admin_menu.tpl.php';
 
