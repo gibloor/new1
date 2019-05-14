@@ -1,0 +1,36 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+.usersList{
+    min-height: 95vh;
+    width: 100%;
+    background-color: #f2f2f2;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+tr{
+    color: white;
+}
+td{
+    width: 10vw;
+    height: 60px;
+    text-align: center;
+}
+div.table{
+    display: table;
+}
+FORM.tr
+{
+    background-color:#C3C3C3;
+    display:table-row;
+}
+SPAN.td
+{
+    background-color: #f2f2f2;
+    display:table-cell;
+    width: 10vw;
+    height: 60px;
+    text-align: center;
+}
