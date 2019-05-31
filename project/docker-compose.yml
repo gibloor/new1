@@ -1,0 +1,42 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: nginx:1.13
+    ports:
+      - 8080:80
+    volumes:
+      - ./src:/project/src
+      - ./nginx/nginx.conf:/nginx/nginx.conf
+    depends_on:
+      - php
+
+  php:
+    build:
+      ./php
+    volumes:
+      - ./src:/var/www/html
+      - ./php/php.ini:/etc/php/7.2/fpm/php.ini
+    depends_on:
+      - mariadb
+
+  mariadb:
+    image: mariadb:10.3
+    volumes:
+      - ./mariadb:/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    links: 
+      - mariadb:db
+    ports:
+      - 8765:80
+    environment:
+      MYSQL_ROOT_PASSWORD: qwerty
+    depends_on:
+      - mariadb
+
+
