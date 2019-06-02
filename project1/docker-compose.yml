@@ -1,0 +1,35 @@
+nginx:
+  image: nginx:latest
+  ports:
+    - "8080:80"
+  volumes:
+    - ./code:/code
+    - ./nginx/nginx.conf:/var/www/nginx.conf
+  links:
+    - php
+
+php:
+  build: .
+  volumes: 
+    - ./code:/code
+  environment:
+    XDEBUG_CONFIG: remote_host=host.docker.internal
+  links:
+    - mysql
+
+mysql:
+  image: mysql:latest
+  ports:
+    - "3308:3308"
+  environment: 
+    - MYSQL_ROOT_PASSWORD=qwerty
+
+phpmyadmin:
+  image: phpmyadmin/phpmyadmin
+  links:
+    - mysql:db
+  ports:
+    - "8082:80"
+  environment:
+    - PMA_USER=root
+    - PMA_PASSWORD=qwerty
